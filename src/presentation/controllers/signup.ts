@@ -12,5 +12,11 @@ export class SignUpController {
         body: Error('Missing param: email')
       };
     }
+    if (!httpRequest.body.password) {
+      return {
+        statusCode: 400,
+        body: Error('Missing param: password')
+      };
+    }
   }
 };
