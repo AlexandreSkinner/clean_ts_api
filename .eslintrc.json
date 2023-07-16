@@ -15,6 +15,7 @@
     "plugins": ["@typescript-eslint"],
     "rules": {
       "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/consistent-type-imports": "off",
       "@typescript-eslint/semi": "off",
       "semi": [2, "always"]
     }
