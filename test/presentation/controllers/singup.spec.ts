@@ -1,5 +1,6 @@
 import { describe, test, expect } from 'vitest';
 import { SignUpController } from '@/presentation/controllers/signup';
+import { MissingParamError } from '@/presentation/errors/missing-param-error';
 
 describe('SingUp Controller', () => {
   test('Sould return 400 if no name provided', () => {
@@ -13,7 +14,7 @@ describe('SingUp Controller', () => {
     };
     const httpResponse = sut.handle(httpRequest);
     expect(httpResponse.statusCode).toBe(400);
-    expect(httpResponse.body).toEqual(new Error('Missing param: name'));
+    expect(httpResponse.body).toEqual(new MissingParamError('name'));
   });
 
   test('Sould return 400 if no email provided', () => {
@@ -27,7 +28,7 @@ describe('SingUp Controller', () => {
     };
     const httpResponse = sut.handle(httpRequest);
     expect(httpResponse.statusCode).toBe(400);
-    expect(httpResponse.body).toEqual(new Error('Missing param: email'));
+    expect(httpResponse.body).toEqual(new MissingParamError('email'));
   });
 
   test('Sould return 400 if no password provided', () => {
@@ -40,6 +41,6 @@ describe('SingUp Controller', () => {
     };
     const httpResponse = sut.handle(httpRequest);
     expect(httpResponse.statusCode).toBe(400);
-    expect(httpResponse.body).toEqual(new Error('Missing param: password'));
+    expect(httpResponse.body).toEqual(new MissingParamError('password'));
   });
 });
