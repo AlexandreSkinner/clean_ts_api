@@ -3,3 +3,4 @@ coverage
 dist
 .env
 VSCode.md
+.vscode
