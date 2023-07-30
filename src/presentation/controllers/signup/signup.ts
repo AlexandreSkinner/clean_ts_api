@@ -1,6 +1,6 @@
 import { HttpResponse, HttpRequest, Controller, EmailValidator, AddAccount } from '@/presentation/controllers/signup/signup-protocols';
 import { MissingParamError, InvalidParamError } from '@/presentation/errors';
-import { badRequest, serverError } from '@/presentation/helpers/http-helper';
+import { badRequest, serverError, ok } from '@/presentation/helpers/http-helper';
 
 export class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator;
@@ -32,10 +32,7 @@ export class SignUpController implements Controller {
         email,
         password
       });
-      return {
-        statusCode: 200,
-        body: account
-      };
+      return ok(account);
     } catch (error) {
       return serverError();
     }
