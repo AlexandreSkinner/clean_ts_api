@@ -193,7 +193,7 @@ São executados o eslint para fixar os possiveis erros e o teste através do scr
 
 ```
   ~/projeto/vitest-template
-  » npm install -D vitest
+  » npm install -D vitest @vitest/coverage-v8
 ```
 Abaixo temos um exemplo de arquivo de configuração do Vitest
 ## Arquivo de configuração do Vitest (vitest.config.js)
