@@ -189,12 +189,18 @@ São executados o eslint para fixar os possiveis erros e o teste através do scr
 }
 ```
 # Instalando o Vitest.
-  Instala o Vitest, a biblioteca de teste para o typescript.
+  O comando abaixo instala o Vitest, a biblioteca de teste para o Typescript ou Javascript.
 
 ```
   ~/projeto/vitest-template
-  » npm install -D vitest @vitest/coverage-v8
+  » npm install -D vitest
 ```
+Por padrão, o Vitest usa o pacote c8 para executar relatórios de cobertura. Entretanto, ele está sendo substituido pelo pacote v8, para instalá-lo use o comando:
+```
+  ~/projeto/vitest-template
+  » npm install -D @vitest/coverage-v8
+```
+
 Abaixo temos um exemplo de arquivo de configuração do Vitest
 ## Arquivo de configuração do Vitest (vitest.config.js)
 Este arquivo configura o vitest, dentre outras coisas, para reconhecer os alias _"@/*"_ e _"@/test/*"_
