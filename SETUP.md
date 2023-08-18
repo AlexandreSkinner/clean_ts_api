@@ -225,8 +225,10 @@ export default defineConfig({
 No script **test:staged** abaixo a opção --run informa ao vitest nao entre eno modo watch.
 ```
   "scripts": {
-    "test": "vitest",
-    "test:staged": "vitest related ./test/*.spec.ts --run",
+    "build": "tsc -p tsconfig-build.json && tsc-alias",
+    "test": "vitest --passWithNoTests --run",
+    "test:unit": "vitest --passWithNoTests -w",
+    "test:staged": "vitest related ./test/*.spec.ts --passWithNoTests --run",
     "test:coverage": "vitest run --coverage"
   },
 ```
