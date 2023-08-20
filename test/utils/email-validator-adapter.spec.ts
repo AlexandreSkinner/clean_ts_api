@@ -1,10 +1,24 @@
-import { describe, test, expect } from 'vitest';
+import { describe, test, expect, vitest } from 'vitest';
 import { EmailValidatorAdapter } from '@/utils/email-validator-adapter';
+import validator from 'validator';
+
+vitest.doMock('validator', () => ({
+  isEmail (): boolean {
+    return true;
+  }
+}));
 
 describe('EmailValidator Adapter', () => {
   test('Should return false if validator return false', () => {
     const sut = new EmailValidatorAdapter();
+    vitest.spyOn(validator, 'isEmail').mockReturnValueOnce(false);
     const isValid = sut.isValid('invalid_email@mail.com');
     expect(isValid).toBe(false);
+  });
+
+  test('Should return true if validator return true', () => {
+    const sut = new EmailValidatorAdapter();
+    const isValid = sut.isValid('valid_email@mail.com');
+    expect(isValid).toBe(true);
   });
 });
