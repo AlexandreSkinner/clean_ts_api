@@ -154,6 +154,8 @@ Abaixo temos um exemplo do arquivo de configuração do eslint **.eslintrc.json*
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/consistent-type-imports": "off",
       "@typescript-eslint/semi": "off",
       "semi": [2, "always"]
   }
@@ -161,17 +163,17 @@ Abaixo temos um exemplo do arquivo de configuração do eslint **.eslintrc.json*
 ```
 # Instalando o husky
   Permite utilizarmos os hook do git para garantir que não iremos commitar código fora das
-  diretrizes parametrizadas no eslint e que não estiverem passando no teste de unit do jest
+  diretrizes parametrizadas no eslint e que não estiverem passando no teste de unit do vitest
 ```
     ~/projeto/vitest-template
     » npm install husky -D
     » npm install -D lint-staged
 ```
-  A biblioteca lint-stage determina que o lint e jest atuem apenas nos arquivos que se encontram na staged area do git.
+  A biblioteca lint-stage determina que o lint e vitest atuem apenas nos arquivos que se encontram na staged area do git.
 
   O primeiro comando instala o husky, criando a pasta de mesmo nome.
   O segundo comando cria arquivo de pre-commit com o comando que está entre aspas dentro dele.
-  Fazendo com que um commit que não passe no teste realizado pelo Jest não seja efetivado.
+  Fazendo com que um commit que não passe no teste realizado pelo Vitest não seja efetivado.
 ```
     ~/projeto/compras
     » npx husky install
@@ -233,7 +235,7 @@ No script **test:staged** abaixo a opção --run informa ao vitest nao entre eno
   },
 ```
   ## Executando os teste.
-  Para executar o jest direto ou através de um script
+  Para executar o vitest direto ou através de um script
 ```
   ~/projeto/vitest-template
   » npx vitest
@@ -298,7 +300,7 @@ da pasta **test** sejam buildados (transpilados para javascript).
 }
 ```
 
-Para isso temos que passando o parâmetro abaixo, no script de buid
+Para isso temos que passar o parâmetro abaixo, no script de buid
 
 ```
 tsc -p tsconfig-build.json
